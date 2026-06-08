@@ -22,34 +22,6 @@ public class JogoTesouro {
             switch (opcao) {
                 case 1:
                     exibirInstrucoes();
-                    System.out.println("\nBem vindo ao jogo da Ilha dos Tesouros! \r\n" + //
-                            "Tente sobreviver as armadilhas, resgate tesouros e ganhe pontos.Explore esse novo mundo e vença para sair vivo!");
-                    System.out.println("\n===== Como jogar =====");
-                    System.out.println(
-                            "Para escolher uma ilha você deve digitar o número desejado. Cada ilha pode conter um tesouro, uma armadilha ou estar vazia.\r\n"
-                                    + //
-                                    "");
-                    System.out.println("===== Tesouros =====");
-                    System.out.println("Os tesouros escondidos são: Ouro, Diamante e Rubi.");
-                    System.out.println("\n===== Armadilhas =====");
-                    System.out.println("As armadilhas espalhadas pelas ilhas são: Buraco, Cobra e Espinhos.");
-                    System.out.println("\n===== Ilhas vazias =====");
-                    System.out.println(
-                            "Se em uma tentativa o jogador escolher e cair em uma ilha vazia ele não pontua, e não perde pontos também."
-                                    + //
-                                    "");
-                    System.out.println("\n===== Pontuação =====");
-                    System.out.println("Ouro      |     +10 pontos");
-                    System.out.println("Diamante  |     +20 pontos");
-                    System.out.println("Rubi      |     +15 pontos");
-                    System.out.println("Cobra     |     -10 pontos");
-                    System.out.println("Espinhos  |     -7 pontos");
-                    System.out.println("Buraco    |     -5 pontos");
-                    System.out.println("Vazio     |      0 pontos");
-                    System.out.println("\n===== Tentativas =====");
-                    System.out.println(
-                            "O jogador tem direito a 8 rodadas. Se ao final dessas rodadas ele tiver pontos positivos o jogador vence o jogo, se a pontuação for negativa ele perde o jogo. Se desejar finalizar o jogo antes, precisa ir ao menu inicial e escolher a opção \"5 - Sair\".");
-                    System.out.println();
                     break;
 
                 case 2:
@@ -78,6 +50,34 @@ public class JogoTesouro {
     }
 
     private void exibirInstrucoes() {
+        System.out.println("\nBem vindo ao jogo da Ilha dos Tesouros! \r\n" + //
+                            "Tente sobreviver as armadilhas, resgate tesouros e ganhe pontos.Explore esse novo mundo e vença para sair vivo!");
+                    System.out.println("\n===== Como jogar =====");
+                    System.out.println(
+                            "Para escolher uma ilha você deve digitar o número desejado. Cada ilha pode conter um tesouro, uma armadilha ou estar vazia.\r\n"
+                                    + //
+                                    "");
+                    System.out.println("===== Tesouros =====");
+                    System.out.println("Os tesouros escondidos são: Ouro, Diamante e Rubi.");
+                    System.out.println("\n===== Armadilhas =====");
+                    System.out.println("As armadilhas espalhadas pelas ilhas são: Buraco, Cobra e Espinhos.");
+                    System.out.println("\n===== Ilhas vazias =====");
+                    System.out.println(
+                            "Se em uma tentativa o jogador escolher e cair em uma ilha vazia ele não pontua, e não perde pontos também."
+                                    + //
+                                    "");
+                    System.out.println("\n===== Pontuação =====");
+                    System.out.println("Ouro      |     +10 pontos");
+                    System.out.println("Diamante  |     +20 pontos");
+                    System.out.println("Rubi      |     +15 pontos");
+                    System.out.println("Cobra     |     -10 pontos");
+                    System.out.println("Espinhos  |     -7 pontos");
+                    System.out.println("Buraco    |     -5 pontos");
+                    System.out.println("Vazio     |      0 pontos");
+                    System.out.println("\n===== Tentativas =====");
+                    System.out.println(
+                            "O jogador tem direito a 8 rodadas. Se ao final dessas rodadas ele tiver pontos positivos o jogador vence o jogo, se a pontuação for negativa ele perde o jogo. Se desejar finalizar o jogo antes, precisa ir ao menu inicial e escolher a opção \"5 - Sair\".");
+                    System.out.println();
 
     }
 
