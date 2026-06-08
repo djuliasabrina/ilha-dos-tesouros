@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class JogoTesouro {
 
     Scanner leitor = new Scanner(System.in);
+    String[] ilhas = new String[15];
 
     public void exibirMenu() {
 
@@ -29,7 +30,7 @@ public class JogoTesouro {
                     break;
 
                 case 3:
-                    inicializarIlha();
+                    
                     inicializarControleExplorado();
                     break;
 
@@ -46,7 +47,6 @@ public class JogoTesouro {
                     break;
             }
         }
-
     }
 
     private void exibirInstrucoes() {
@@ -86,7 +86,9 @@ public class JogoTesouro {
     }
 
     private void inicializarIlha() {
-
+        for (int i = 0; i < ilhas.length; i++) {
+            ilhas[i] = sortear();
+        }
     }
 
     private void inicializarControleExplorado() {
@@ -95,6 +97,17 @@ public class JogoTesouro {
 
     private void mostrarStatus() {
 
+    }
+
+    private String sortear() {
+        String[] tipos = {"VAZIO", "OURO", "DIAMANTE","RUBI", "BURADO", "COBRA", "ESPINHOS"};
+      
+
+        int posicao = (int)(Math.random() * 7);
+        System.out.println(posicao + " " + tipos[posicao]);
+
+
+        return tipos[posicao];
     }
 
     private void lerPosicao(){
