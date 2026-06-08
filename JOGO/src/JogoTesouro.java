@@ -97,4 +97,39 @@ public class JogoTesouro {
 
     }
 
+    private void lerPosicao(){
+
+    }
+
+    private void posicaoJaExplorada(){
+
+    }
+
+    private void calcularPontuacao(){
+
+    }
+
+    private void contarTesouros(){
+
+    }
+
+    private void verificarFimDeJogo(){
+
+    }
+
+    private void perguntarSeDesejaReiniciar(){
+
+
+    }
+
+    private void reiniciarJogo(){
+
+    }
+
+    private void mostrarResultadoFinal(){
+        
+    }
+
+    
+
 }
