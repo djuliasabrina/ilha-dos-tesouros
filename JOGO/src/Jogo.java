@@ -25,8 +25,8 @@ public class Jogo {
         int posicoesVaziasEncontradas = 0;
         boolean[] exploradas = new boolean[15];
 
-        exibirMenu(leitor, ilhas, exploradas, tentativas, pontuacaoAtual, 
-                   tesourosEncontrados, armadilhasEncontradas, posicoesVaziasEncontradas);
+        exibirMenu(leitor, ilhas, exploradas, tentativas, pontuacaoAtual,
+                tesourosEncontrados, armadilhasEncontradas, posicoesVaziasEncontradas);
 
     }
 
@@ -66,12 +66,12 @@ public class Jogo {
 
                         if (resultado.equals("OURO") || resultado.equals("DIAMANTE") || resultado.equals("RUBI")) {
                             tesourosEncontrados++;
-                        } else if (resultado.equals("BURACO") || resultado.equals("COBRA") || resultado.equals("ESPINHOS")) {
+                        } else if (resultado.equals("BURACO") || resultado.equals("COBRA")
+                                || resultado.equals("ESPINHOS")) {
                             armadilhasEncontradas++;
                         } else {
                             posicoesVaziasEncontradas++;
                         }
-
 
                         System.out.println("Rodada concluída! Tentativas restantes: " + tentativas);
                         System.out.println("---------------------------------------------");
@@ -82,11 +82,38 @@ public class Jogo {
                             exibirFimDeJogo(pontuacaoAtual);
                             opcao = 5; // Força a saída do laço while, encerrando o programa
 
+                             if (desejaContinuarJogando(leitor, ilhas)) {
+                                pontuacaoAtual = 0;
+                                tentativas = 8;
+                                tesourosEncontrados = 0;
+                                armadilhasEncontradas = 0;
+                                posicoesVaziasEncontradas = 0;
+                                exploradas = new boolean[15];
+                                opcao = 3;
+                            } else {
+                                opcao = 5;
+                            }
+
+
                         } else if (tentativas == 0) {
                             System.out.println("\n---------------------------------------------");
                             System.out.println("Fim de jogo! Suas 8 tentativas acabaram.");
                             exibirFimDeJogo(pontuacaoAtual);
                             opcao = 5; // Força a saída do laço while, encerrando o programa
+                        
+                             if (desejaContinuarJogando(leitor, ilhas)) {
+                                pontuacaoAtual = 0;
+                                tentativas = 8;
+                                tesourosEncontrados = 0;
+                                armadilhasEncontradas = 0;
+                                posicoesVaziasEncontradas = 0;
+                                exploradas = new boolean[15];
+                                opcao = 3;
+                            } else {
+                                opcao = 5;
+                            }
+
+                        
                         }
                     } else {
                         System.out.println("Você não possui mais jogadas disponíveis nesta partida.");
@@ -95,7 +122,8 @@ public class Jogo {
                     break;
 
                 case 4:
-                    statusAtual(pontuacaoAtual, tentativas, tesourosEncontrados, armadilhasEncontradas, posicoesVaziasEncontradas);
+                    statusAtual(pontuacaoAtual, tentativas, tesourosEncontrados, armadilhasEncontradas,
+                            posicoesVaziasEncontradas);
                     break;
 
                 case 5:
@@ -183,6 +211,17 @@ public class Jogo {
 
     }
 
+    private boolean desejaContinuarJogando(Scanner leitor, String[] ilhas) {
+        System.out.print("Deseja jogar novamente? (S/N): ");
+        String opcaoContinuarJogando = leitor.next().toUpperCase();
+
+        if (opcaoContinuarJogando.equals("S")) {
+            inicializarIlha(ilhas);
+            return true;
+        }
+        return false;
+    }
+
     private void resultadoPosicao(String resultado) {
         if (resultado.equals("OURO")) {
             System.out.println("Você encontrou " + resultado + "! +10 pontos.");
@@ -212,13 +251,14 @@ public class Jogo {
         return qtdTesourosDessaPartida == tesourosEncontrados;
     }
 
-    private void statusAtual(int pontuacaoAtual, int tentativas, int tesourosEncontrados, int armadilhasEncontradas, int posicoesVaziasEncontradas) {
+    private void statusAtual(int pontuacaoAtual, int tentativas, int tesourosEncontrados, int armadilhasEncontradas,
+            int posicoesVaziasEncontradas) {
         System.out.println("\nStatus atual:");
         System.out.println("Pontuação: " + pontuacaoAtual + " pontos");
         System.out.println("Tentativas Restantes: " + tentativas);
         System.out.println("Tesouros Encontrados: " + tesourosEncontrados);
         System.out.println("Armadilhas Encontradas: " + armadilhasEncontradas);
-        System.out.println("Posições vazias exploradas: " +  posicoesVaziasEncontradas + "\n");
+        System.out.println("Posições vazias exploradas: " + posicoesVaziasEncontradas + "\n");
     }
 
     private int pontuacao(String resultado) {
@@ -257,12 +297,12 @@ public class Jogo {
         System.out.println("---------------------------------------------\n");
     }
 
-    private void mostrarMapaExlorado(String[] ilhas, boolean[] exploradas){
+    private void mostrarMapaExlorado(String[] ilhas, boolean[] exploradas) {
         System.out.println("Mapa da ilha:");
-        for(int i = 0; i < ilhas.length; i++){ // passa por todas as posições para conferir
-            if(exploradas[i] == true){
+        for (int i = 0; i < ilhas.length; i++) { // passa por todas as posições para conferir
+            if (exploradas[i] == true) {
                 System.out.println("[" + i + "]" + " EXPLORADO");
-            } else{
+            } else {
                 System.out.println("[" + i + "]" + " ?");
             }
         }
