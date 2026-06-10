@@ -81,7 +81,7 @@ public class Jogo {
                             System.out.println("Você encontrou todos os tesouros da ilha!");
                             exibirFimDeJogo(pontuacaoAtual);
                             opcao = 5; // Força a saída do laço while, encerrando o programa
-
+s
                              if (desejaContinuarJogando(leitor, ilhas)) {
                                 pontuacaoAtual = 0;
                                 tentativas = 8;
