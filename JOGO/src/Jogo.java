@@ -79,13 +79,13 @@ public class Jogo {
                         if (verificarQtdTesouros(ilhas, tesourosEncontrados)) {
                             System.out.println("\n---------------------------------------------");
                             System.out.println("Você encontrou todos os tesouros da ilha!");
-                            exibirFimDeJogo(pontuacaoAtual);
+                            exibirFimDeJogo(pontuacaoAtual, tentativas, tesourosEncontrados, armadilhasEncontradas, posicoesVaziasEncontradas);
                             opcao = 5; // Força a saída do laço while, encerrando o programa
 
                         } else if (tentativas == 0) {
                             System.out.println("\n---------------------------------------------");
                             System.out.println("Fim de jogo! Suas 8 tentativas acabaram.");
-                            exibirFimDeJogo(pontuacaoAtual);
+                            exibirFimDeJogo(pontuacaoAtual, tentativas, tesourosEncontrados, armadilhasEncontradas, posicoesVaziasEncontradas);
                             opcao = 5; // Força a saída do laço while, encerrando o programa
                         }
                     } else {
@@ -252,8 +252,15 @@ public class Jogo {
 
     }
 
-    private void exibirFimDeJogo(int pontuacaoFinal) {
-        System.out.println("Pontuação Total Acumulada: " + pontuacaoFinal + " pontos.");
+    private void exibirFimDeJogo(int pontuacaoFinal, int tentativas, int tesourosEncontrados, int armadilhasEncontradas, int posicoesVaziasEncontradas) {
+        statusAtual(pontuacaoFinal, tentativas, tesourosEncontrados, armadilhasEncontradas, posicoesVaziasEncontradas);
+        System.out.println("Pontuação final: " + pontuacaoFinal + " pontos.");
+        if(pontuacaoFinal > 0){
+            System.out.println("Você venceu!");
+        }
+        else{
+            System.out.println("Você perdeu. Tente novamente!");
+        }
         System.out.println("---------------------------------------------\n");
     }
 
