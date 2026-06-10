@@ -50,6 +50,7 @@ public class Jogo {
                     break;
 
                 case 2:
+                    mostrarMapaExlorado(ilhas, exploradas);
 
                     break;
 
@@ -76,14 +77,14 @@ public class Jogo {
                         System.out.println("---------------------------------------------");
 
                         if (verificarQtdTesouros(ilhas, tesourosEncontrados)) {
-                            System.out.println("\n=================================================");
-                            System.out.println("PARABÉNS! Você localizou TODOS os tesouros da ilha!");
+                            System.out.println("\n---------------------------------------------");
+                            System.out.println("Você encontrou todos os tesouros da ilha!");
                             exibirFimDeJogo(pontuacaoAtual);
                             opcao = 5; // Força a saída do laço while, encerrando o programa
 
                         } else if (tentativas == 0) {
-                            System.out.println("\n=================================================");
-                            System.out.println("FIM DAS RODADAS! Suas 8 tentativas acabaram.");
+                            System.out.println("\n---------------------------------------------");
+                            System.out.println("Fim de jogo! Suas 8 tentativas acabaram.");
                             exibirFimDeJogo(pontuacaoAtual);
                             opcao = 5; // Força a saída do laço while, encerrando o programa
                         }
@@ -215,8 +216,8 @@ public class Jogo {
         System.out.println("\nStatus atual:");
         System.out.println("Pontuação: " + pontuacaoAtual + " pontos");
         System.out.println("Tentativas Restantes: " + tentativas);
-        System.out.println("Tesouros Encontrados: " + tesourosEncontrados + "\n");
-        System.out.println("Armadilhas Encontradas: " + armadilhasEncontradas + "\n");
+        System.out.println("Tesouros Encontrados: " + tesourosEncontrados);
+        System.out.println("Armadilhas Encontradas: " + armadilhasEncontradas);
         System.out.println("Posições vazias exploradas: " +  posicoesVaziasEncontradas + "\n");
     }
 
@@ -253,7 +254,18 @@ public class Jogo {
 
     private void exibirFimDeJogo(int pontuacaoFinal) {
         System.out.println("Pontuação Total Acumulada: " + pontuacaoFinal + " pontos.");
-        System.out.println("=================================================\n");
+        System.out.println("---------------------------------------------\n");
+    }
+
+    private void mostrarMapaExlorado(String[] ilhas, boolean[] exploradas){
+        System.out.println("Mapa da ilha:");
+        for(int i = 0; i < ilhas.length; i++){ // passa por todas as posições para conferir
+            if(exploradas[i] == true){
+                System.out.println("[" + i + "]" + " EXPLORADO");
+            } else{
+                System.out.println("[" + i + "]" + " ?");
+            }
+        }
     }
 
 }
