@@ -13,7 +13,7 @@ public class Jogo {
         leitor.close();
     }
 
-    public void iniciar(Scanner leitor, String[] ilhas) {
+    private void iniciar(Scanner leitor, String[] ilhas) {
         System.out.println("Bem-vindo ao jogo Ilha dos Tesouros!");
         System.out.println("A ilha possui 15 posições, numeradas de 0 a 14.");
         System.out.println("Você possui 8 tentativas para encontrar os tesouros.");
@@ -111,6 +111,7 @@ public class Jogo {
                                 opcao = 3;
                             } else {
                                 opcao = 5;
+                                statusAtual(pontuacaoAtual, tentativas, tesourosEncontrados, armadilhasEncontradas, posicoesVaziasEncontradas);
                             }
 
                         
